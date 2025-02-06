@@ -34,3 +34,17 @@ func GenerateJWT(user types.Credential) (string, error) {
 	return tokenString, nil
 
 }
+
+// func sum(slice []int, ch chan int) {
+// 	sum := 0
+// 	for _, v := range slice {
+// 		sum += v
+// 	}
+// 	ch <- sum
+// }
+
+// func SendToMain(ch chan int, slice []int) {
+// 	for _, v := range slice {
+// 		ch <- v
+// 	}
+// }

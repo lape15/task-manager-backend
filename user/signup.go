@@ -61,6 +61,7 @@ func SignUp(res http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		log.Printf("Failed to create user: %v\n", err)
 		http.Error(res, fmt.Sprintf("Failed to create user: %v", err), http.StatusInternalServerError)
+		res.Write([]byte("User already exists!"))
 		return
 	}
 	credential.UserId = userId
