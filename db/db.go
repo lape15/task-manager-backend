@@ -159,8 +159,18 @@ func ConnectDb() {
 	dbUser := os.Getenv("MYSQL_USER")
 	dbPassword := os.Getenv("MYSQL_PASSWORD")
 	dbName := os.Getenv("MYSQL_DATABASE")
+	env := os.Getenv("APP_ENV")
 	// dbHost := "mysql-container" // mysql image container
-	dbHost := "localhost"
+
+	var dbHost string
+
+	if env == "development" {
+
+		dbHost = "localhost"
+	} else {
+		dbHost = "mysql-service"
+	}
+
 	if dbUser == "" || dbPassword == "" || dbName == "" {
 		log.Fatal("Environment variables (MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE) are not set")
 	}
